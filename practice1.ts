@@ -34,6 +34,19 @@ function Corr(x: number[], y: number[]){
 }
 
 function SimpleLinerRegression(x: number[], y: number[]){
-    let beta1_hat: number = Corr(x, y);
-    let beta0_hat: number = 
+    let beta1_hat: number = 0;
+    let sx: number = 0;
+    let sxy: number = 0;
+    let avg_x: number = avg(x);
+    let avg_y: number = avg(y);
+    let data_length: number = x.length;
+    for(let i=0; i<data_length; i++){
+        sx += (x[i] - avg_x) * (x[i] - avg_x);
+        sxy += (x[i] - avg_x) * (y[i] - avg_y);
+    }
+    beta1_hat = sxy/sx;
+    let beta0_hat: number = avg(y) - beta1_hat * avg(x);
+    return [beta0_hat, beta1_hat];
 };
+
+console.log(SimpleLinerRegression([12, 38, 28, 50, 76],[28, 35, 55, 87, 93]));
