@@ -1,3 +1,6 @@
+"use strict";
+exports.__esModule = true;
+var SimpleStatistics = require("simple-statistics");
 var name1 = 'Hello';
 console.log(name1);
 function add(a, b) {
@@ -28,7 +31,7 @@ function Corr(x, y) {
     }
     return (sxy / data_length) / (Math.sqrt(sx_2) * Math.sqrt(sy_2));
 }
-function SimpleLinerRegression(x, y) {
+function SimpleLinearRegression(x, y) {
     var beta1_hat = 0;
     var sx = 0;
     var sxy = 0;
@@ -44,4 +47,7 @@ function SimpleLinerRegression(x, y) {
     return [beta0_hat, beta1_hat];
 }
 ;
-console.log(SimpleLinerRegression([12, 38, 28, 50, 76], [28, 35, 55, 87, 93]));
+console.log(SimpleLinearRegression([12, 38, 28, 50, 76], [28, 35, 55, 87, 93]));
+var data = [[12, 28], [38, 35], [28, 55], [50, 87], [76, 93]];
+var result = SimpleStatistics.linearRegression(data);
+console.log(result);

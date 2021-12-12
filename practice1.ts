@@ -1,3 +1,5 @@
+import * as SimpleStatistics from "simple-statistics";
+
 let name1: string ='Hello';
 console.log(name1);
 
@@ -33,7 +35,7 @@ function Corr(x: number[], y: number[]){
     return (sxy/data_length) / (Math.sqrt(sx_2) * Math.sqrt(sy_2));
 }
 
-function SimpleLinerRegression(x: number[], y: number[]){
+function SimpleLinearRegression(x: number[], y: number[]){
     let beta1_hat: number = 0;
     let sx: number = 0;
     let sxy: number = 0;
@@ -49,4 +51,14 @@ function SimpleLinerRegression(x: number[], y: number[]){
     return [beta0_hat, beta1_hat];
 };
 
-console.log(SimpleLinerRegression([12, 38, 28, 50, 76],[28, 35, 55, 87, 93]));
+console.log(SimpleLinearRegression([12, 38, 28, 50, 76],[28, 35, 55, 87, 93]));
+
+
+const data: Array<number>[] = [[12, 28], [38, 35], [28, 55], [50, 87], [76, 93]];
+
+
+const result: {} = SimpleStatistics.linearRegression(data);
+
+
+
+console.log(result);
