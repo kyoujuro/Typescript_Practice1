@@ -1,8 +1,8 @@
-import * as SimpleStatistics from "simple-statistics";
+
 
 let name1: string ='Hello';
 console.log(name1);
-
+let hoge: string = '1';
 function add(a: number, b: number){
     return a+b;
 }
@@ -57,8 +57,4 @@ console.log(SimpleLinearRegression([12, 38, 28, 50, 76],[28, 35, 55, 87, 93]));
 const data: Array<number>[] = [[12, 28], [38, 35], [28, 55], [50, 87], [76, 93]];
 
 
-const result: {} = SimpleStatistics.linearRegression(data);
 
-
-
-console.log(result);
